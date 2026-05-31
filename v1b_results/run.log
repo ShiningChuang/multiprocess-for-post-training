@@ -1,0 +1,97 @@
+============================================================
+V1b Multiprocess GRPO - Two Processes, One GPU
+============================================================
+  Generator + Learner both on cuda:0
+  Batch: 4 × 4 = 16 samples/step
+  Steps: 30
+  Queue max size: 2
+  Weight sync every: 1 steps
+
+
+Loading GSM8K dataset...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  Loaded 7473 training problems
+
+Launching Generator and Learner processes...
+[Generator] Starting on cuda:0, PID=33066
+  Generator PID: 33066 (sleeping 15s for CUDA init)
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:34,  9.73it/s]Loading weights:  22%|██▏       | 75/338 [00:00<00:00, 428.40it/s]Loading weights:  36%|███▋      | 123/338 [00:00<00:00, 451.17it/s]Loading weights:  51%|█████     | 172/338 [00:00<00:00, 464.67it/s]Loading weights:  65%|██████▍   | 219/338 [00:00<00:00, 448.51it/s]Loading weights:  80%|███████▉  | 269/338 [00:00<00:00, 461.38it/s]Loading weights:  93%|█████████▎| 316/338 [00:00<00:00, 456.45it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 443.72it/s]
+  Learner PID: 33238
+[Learner] Starting on cuda:0, PID=33238
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:34,  9.83it/s]Loading weights:  23%|██▎       | 77/338 [00:00<00:00, 441.84it/s]Loading weights:  37%|███▋      | 124/338 [00:00<00:00, 445.24it/s]Loading weights:  51%|█████     | 171/338 [00:00<00:00, 424.09it/s]Loading weights:  65%|██████▍   | 219/338 [00:00<00:00, 425.20it/s]Loading weights:  79%|███████▉  | 267/338 [00:00<00:00, 430.02it/s]Loading weights:  93%|█████████▎| 315/338 [00:00<00:00, 436.94it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 424.89it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:37,  8.92it/s]Loading weights:  23%|██▎       | 77/338 [00:00<00:00, 429.71it/s]Loading weights:  37%|███▋      | 124/338 [00:00<00:00, 444.97it/s]Loading weights:  51%|█████     | 171/338 [00:00<00:00, 444.73it/s][Generator] Step 1 done: gen=20.8s score=0.001s total=20.8s
+Loading weights:  65%|██████▍   | 219/338 [00:00<00:00, 437.57it/s]Loading weights:  78%|███████▊  | 265/338 [00:00<00:00, 444.27it/s]Loading weights:  92%|█████████▏| 310/338 [00:00<00:00, 427.48it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 426.61it/s]
+[Learner] Step    1 | reward=0.300 | acc=0.250 | loss=-0.0002 | kl=0.0000 | gen=20.8s train=8.0s wait=0.0s sync=0.21s
+[Generator] Step 2 done: gen=20.0s score=0.000s total=20.0s
+[Generator] Step 3 done: gen=19.9s score=0.000s total=20.1s
+[Generator] Step 4 done: gen=19.8s score=0.000s total=20.0s
+[Generator] Step 5 done: gen=19.8s score=0.000s total=20.0s
+[Learner] Step    5 | reward=0.025 | acc=0.000 | loss=-0.0014 | kl=-0.0064 | gen=19.8s train=7.2s wait=12.5s sync=0.23s
+[Generator] Step 6 done: gen=19.9s score=0.000s total=20.0s
+[Generator] Step 7 done: gen=19.4s score=0.000s total=19.6s
+[Generator] Step 8 done: gen=25.5s score=0.000s total=25.6s
+[Generator] Step 9 done: gen=25.5s score=0.000s total=25.7s
+[Generator] Step 10 done: gen=25.5s score=0.000s total=25.7s
+[Learner] Step   10 | reward=0.013 | acc=0.000 | loss=-0.0027 | kl=-0.0209 | gen=25.5s train=7.2s wait=18.3s sync=0.23s
+[Generator] Step 11 done: gen=25.5s score=0.000s total=25.7s
+[Generator] Step 12 done: gen=25.5s score=0.000s total=25.7s
+[Generator] Step 13 done: gen=25.4s score=0.000s total=25.6s
+[Generator] Step 14 done: gen=25.5s score=0.000s total=25.6s
+[Generator] Step 15 done: gen=25.5s score=0.000s total=25.7s
+[Learner] Step   15 | reward=0.150 | acc=0.125 | loss=-0.0007 | kl=-0.0213 | gen=25.5s train=7.3s wait=18.2s sync=0.23s
+[Generator] Step 16 done: gen=25.5s score=0.000s total=25.9s
+[Generator] Step 17 done: gen=25.5s score=0.000s total=25.7s
+[Generator] Step 18 done: gen=25.5s score=0.000s total=25.7s
+[Generator] Step 19 done: gen=19.9s score=0.000s total=20.1s
+[Generator] Step 20 done: gen=19.9s score=0.000s total=20.1s
+[Learner] Step   20 | reward=0.213 | acc=0.188 | loss=-0.0005 | kl=-0.0381 | gen=19.9s train=7.9s wait=12.0s sync=0.24s
+[Generator] Step 21 done: gen=19.9s score=0.000s total=20.1s
+[Generator] Step 22 done: gen=19.9s score=0.000s total=20.0s
+[Generator] Step 23 done: gen=19.9s score=0.000s total=20.1s
+[Generator] Step 24 done: gen=19.9s score=0.000s total=20.1s
+[Generator] Step 25 done: gen=19.9s score=0.000s total=20.1s
+[Learner] Step   25 | reward=0.062 | acc=0.062 | loss=-0.0017 | kl=-0.0453 | gen=19.9s train=7.5s wait=12.0s sync=0.24s
+[Generator] Step 26 done: gen=20.0s score=0.000s total=20.2s
+[Generator] Step 27 done: gen=19.9s score=0.000s total=20.1s
+[Generator] Step 28 done: gen=19.9s score=0.000s total=20.1s
+[Generator] Step 29 done: gen=19.9s score=0.000s total=20.1s
+[Generator] Step 30 done: gen=19.9s score=0.000s total=20.1s
+[Generator] Finished all steps, sent stop signal.
+[Learner] ERROR: [Errno 2] No such file or directory
+Traceback (most recent call last):
+  File "/data/project/v1b_multiproc.py", line 307, in learner_process
+    rollout_data = data_queue.get()
+  File "/usr/lib/python3.10/multiprocessing/queues.py", line 122, in get
+    return _ForkingPickler.loads(res)
+  File "/data/venv/lib/python3.10/site-packages/torch/multiprocessing/reductions.py", line 541, in rebuild_storage_fd
+    fd = df.detach()
+  File "/usr/lib/python3.10/multiprocessing/resource_sharer.py", line 57, in detach
+    with _resource_sharer.get_connection(self._id) as conn:
+  File "/usr/lib/python3.10/multiprocessing/resource_sharer.py", line 86, in get_connection
+    c = Client(address, authkey=process.current_process().authkey)
+  File "/usr/lib/python3.10/multiprocessing/connection.py", line 502, in Client
+    c = SocketClient(address)
+  File "/usr/lib/python3.10/multiprocessing/connection.py", line 630, in SocketClient
+    s.connect(address)
+FileNotFoundError: [Errno 2] No such file or directory
+[Main] Generator process finished.
+[Main] Learner process finished.
+
+============================================================
+Training Summary (V1b - Multiprocess Single GPU)
+============================================================
+  Early (steps 1-10):  mean_reward=0.227, accuracy=0.188
+  Late  (last 10):     mean_reward=0.180, accuracy=0.150
+
+  Avg timing per step:
+    Generation:  22.0s (50%)
+    Scoring:     0.000s (0%)
+    Training:    7.5s (17%)
+    Queue wait:  14.0s (32%)
+    Weight sync: 0.24s (1%)
+    Total:       43.8s
+    Throughput:   0.37 samples/sec
+
+Done.

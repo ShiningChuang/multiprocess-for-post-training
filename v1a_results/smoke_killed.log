@@ -1,0 +1,22 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+============================================================
+V1a Serial GRPO - Fixed Algorithm + Batched Generation
+============================================================
+
+[1/5] Loading tokenizer...
+[2/5] Loading policy model with LoRA...
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:40,  8.28it/s]Loading weights:  21%|██▏       | 72/338 [00:00<00:00, 375.63it/s]Loading weights:  33%|███▎      | 112/338 [00:00<00:00, 372.46it/s]Loading weights:  46%|████▌     | 155/338 [00:00<00:00, 365.47it/s]Loading weights:  58%|█████▊    | 195/338 [00:00<00:00, 375.41it/s]Loading weights:  72%|███████▏  | 243/338 [00:00<00:00, 392.42it/s]Loading weights:  84%|████████▎ | 283/338 [00:00<00:00, 391.18it/s]Loading weights:  97%|█████████▋| 327/338 [00:00<00:00, 392.70it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 376.06it/s]
+trainable params: 73,859,072 || all params: 1,617,573,376 || trainable%: 4.5660
+[3/5] Loading reference model (frozen)...
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<01:07,  4.98it/s]Loading weights:  25%|██▍       | 83/338 [00:00<00:00, 340.89it/s]Loading weights:  39%|███▉      | 131/338 [00:00<00:00, 377.97it/s]Loading weights:  52%|█████▏    | 177/338 [00:00<00:00, 372.28it/s]Loading weights:  65%|██████▍   | 219/338 [00:00<00:00, 377.12it/s]Loading weights:  77%|███████▋  | 260/338 [00:00<00:00, 382.69it/s]Loading weights:  90%|████████▉ | 303/338 [00:00<00:00, 390.21it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 364.56it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[4/5] Loading GSM8K dataset...
+  Loaded 7473 training problems
+
+[5/5] Starting training for 100 steps...
+  Batch size: 8 prompts × 8 responses = 64 samples/step
+  LR=5e-06, KL_COEFF=0.1, CLIP_EPS=0.2
+  Device: cuda:0
+
+Step    1 | reward=0.813 | acc=0.672 | loss=-0.2168 | kl=0.0000 | gen=255.7s score=0.002s train=34.1s total=289.8s
+Step    5 | reward=0.872 | acc=0.703 | loss=-0.1080 | kl=0.0047 | gen=276.6s score=0.001s train=32.3s total=308.9s

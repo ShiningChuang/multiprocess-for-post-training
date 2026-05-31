@@ -1,0 +1,111 @@
+============================================================
+V2i Interleaved Pipeline GRPO - 4-GPU
+============================================================
+  Learner cuda:0 | Generators cuda:1,2,3
+  Batch 8 x Group 8 = 64 samples/step
+  Total steps: 30 (each generator runs 10)
+  Sync every 3 learner steps
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  Loaded 7473 training problems
+  Learner PID: 82394
+[Learner] start on cuda:0, PID=82394
+  Generator-1 PID: 82426
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[Generator-1] start on cuda:1, PID=82426
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:54,  6.21it/s]Loading weights:  22%|██▏       | 76/338 [00:00<00:00, 338.77it/s]Loading weights:  36%|███▌      | 120/338 [00:00<00:00, 370.50it/s]Loading weights:  48%|████▊     | 161/338 [00:00<00:00, 350.53it/s]Loading weights:  59%|█████▉    | 199/338 [00:00<00:00, 326.73it/s]Loading weights:  69%|██████▉   | 234/338 [00:00<00:00, 331.44it/s]Loading weights:  80%|███████▉  | 269/338 [00:00<00:00, 335.79it/s]Loading weights:  90%|████████▉ | 304/338 [00:00<00:00, 336.10it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 332.07it/s]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<01:06,  5.08it/s]Loading weights:  26%|██▌       | 87/338 [00:00<00:00, 343.80it/s]Loading weights:  39%|███▉      | 132/338 [00:00<00:00, 319.88it/s]Loading weights:  50%|█████     | 170/338 [00:00<00:00, 322.55it/s]Loading weights:  61%|██████    | 206/338 [00:00<00:00, 305.51it/s]Loading weights:  72%|███████▏  | 243/338 [00:00<00:00, 311.41it/s]Loading weights:  82%|████████▏ | 276/338 [00:00<00:00, 304.65it/s]Loading weights:  91%|█████████ | 308/338 [00:01<00:00, 303.89it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 306.14it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]  Generator-2 PID: 82473
+Loading weights:   0%|          | 1/338 [00:00<01:16,  4.42it/s]Loading weights:  12%|█▏        | 39/338 [00:00<00:02, 131.36it/s][Generator-2] start on cuda:2, PID=82473
+Loading weights:  22%|██▏       | 76/338 [00:00<00:01, 193.33it/s]Loading weights:  35%|███▍      | 118/338 [00:00<00:00, 246.79it/s]Loading weights:  44%|████▍     | 148/338 [00:00<00:00, 256.33it/s]Loading weights:  52%|█████▏    | 176/338 [00:00<00:00, 252.98it/s]Loading weights:  61%|██████    | 207/338 [00:00<00:00, 266.76it/s]Loading weights:  72%|███████▏  | 244/338 [00:01<00:00, 272.50it/s]Loading weights:  83%|████████▎ | 279/338 [00:01<00:00, 285.63it/s]Loading weights:  93%|█████████▎| 315/338 [00:01<00:00, 298.03it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 247.40it/s]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:36,  9.26it/s]Loading weights:  14%|█▍        | 47/338 [00:00<00:01, 252.73it/s]Loading weights:  26%|██▋       | 89/338 [00:00<00:00, 325.39it/s]Loading weights:  39%|███▉      | 133/338 [00:00<00:00, 348.63it/s]Loading weights:  51%|█████     | 171/338 [00:00<00:00, 358.13it/s]Loading weights:  63%|██████▎   | 212/338 [00:00<00:00, 374.99it/s]Loading weights:  74%|███████▍  | 250/338 [00:00<00:00, 373.08it/s]Loading weights:  85%|████████▌ | 288/338 [00:00<00:00, 360.48it/s]Loading weights:  96%|█████████▌| 325/338 [00:00<00:00, 347.60it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 342.94it/s]
+  Generator-3 PID: 82735
+[Generator-3] start on cuda:3, PID=82735
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:48,  6.94it/s]Loading weights:  19%|█▉        | 65/338 [00:00<00:00, 315.32it/s]Loading weights:  30%|███       | 102/338 [00:00<00:00, 336.67it/s]Loading weights:  41%|████      | 139/338 [00:00<00:00, 337.50it/s]Loading weights:  52%|█████▏    | 175/338 [00:00<00:00, 337.87it/s]Loading weights:  64%|██████▍   | 216/338 [00:00<00:00, 356.29it/s]Loading weights:  75%|███████▍  | 253/338 [00:00<00:00, 349.46it/s]Loading weights:  86%|████████▌ | 289/338 [00:00<00:00, 351.42it/s]Loading weights:  97%|█████████▋| 328/338 [00:00<00:00, 354.31it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 340.07it/s]
+[Generator-3] step 1/10: gen=248.9s wver=0
+[Generator-1] step 1/10: gen=287.1s wver=0
+[Learner] step   1 (gen 3) | reward=0.744 acc=0.625 loss=-0.1084 kl=0.0000 | t_overlap=264.1s t_train=27.9s t_sync=0.00s | stale=0 (lver=0)
+[Generator-2] step 1/10: gen=306.4s wver=0
+[Learner] step   2 (gen 1) | reward=0.738 acc=0.609 loss=-0.1085 kl=0.0000 | t_overlap=0.3s t_train=33.6s t_sync=0.00s | stale=0 (lver=0)
+[Learner] step   3 (gen 2) | reward=0.472 acc=0.359 loss=-0.0005 kl=0.0001 | t_overlap=0.1s t_train=33.7s t_sync=5.19s | stale=0 (lver=1)
+[Generator-3] step 2/10: gen=276.3s wver=0
+[Learner] step   4 (gen 3) | reward=0.644 acc=0.516 loss=-0.0002 kl=0.0002 | t_overlap=175.7s t_train=29.4s t_sync=0.00s | stale=1 (lver=1)
+[Generator-1] step 2/10: gen=288.5s wver=0
+[Learner] step   5 (gen 1) | reward=0.716 acc=0.594 loss=-0.2174 kl=-0.0003 | t_overlap=7.3s t_train=32.5s t_sync=0.00s | stale=1 (lver=1)
+[Generator-2] step 2/10: gen=329.1s wver=0
+[Learner] step   6 (gen 2) | reward=0.759 acc=0.609 loss=-0.0003 kl=-0.0000 | t_overlap=32.1s t_train=31.0s t_sync=4.01s | stale=1 (lver=2)
+[Generator-3] step 3/10: gen=250.2s wver=1
+[Learner] step   7 (gen 3) | reward=0.666 acc=0.547 loss=-0.1087 kl=0.0015 | t_overlap=115.1s t_train=33.7s t_sync=0.00s | stale=1 (lver=2)
+[Generator-1] step 3/10: gen=279.5s wver=1
+[Learner] step   8 (gen 1) | reward=0.631 acc=0.500 loss=-0.1451 kl=0.0011 | t_overlap=32.0s t_train=32.0s t_sync=0.00s | stale=1 (lver=2)
+[Generator-2] step 3/10: gen=274.4s wver=1
+[Learner] step   9 (gen 2) | reward=0.700 acc=0.578 loss=0.0009 kl=0.0021 | t_overlap=27.5s t_train=30.6s t_sync=4.01s | stale=1 (lver=3)
+[Generator-3] step 4/10: gen=256.9s wver=2
+[Learner] step  10 (gen 3) | reward=0.756 acc=0.625 loss=0.0001 kl=0.0027 | t_overlap=97.7s t_train=31.8s t_sync=0.00s | stale=1 (lver=3)
+[Generator-1] step 4/10: gen=306.0s wver=2
+[Generator-2] step 4/10: gen=275.4s wver=2
+[Learner] step  11 (gen 1) | reward=0.669 acc=0.516 loss=-0.1078 kl=0.0044 | t_overlap=83.1s t_train=33.8s t_sync=0.00s | stale=1 (lver=3)
+[Learner] step  12 (gen 2) | reward=0.691 acc=0.547 loss=-0.0004 kl=0.0041 | t_overlap=0.1s t_train=31.0s t_sync=3.82s | stale=1 (lver=4)
+[Generator-3] step 5/10: gen=263.9s wver=3
+[Learner] step  13 (gen 3) | reward=0.700 acc=0.562 loss=-0.1086 kl=0.0030 | t_overlap=80.7s t_train=20.6s t_sync=0.00s | stale=1 (lver=4)
+[Generator-1] step 5/10: gen=300.2s wver=3
+[Generator-2] step 5/10: gen=302.3s wver=3
+[Learner] step  14 (gen 1) | reward=0.775 acc=0.625 loss=0.0002 kl=0.0034 | t_overlap=130.7s t_train=32.4s t_sync=0.00s | stale=1 (lver=4)
+[Learner] step  15 (gen 2) | reward=0.878 acc=0.734 loss=-0.0002 kl=0.0036 | t_overlap=0.1s t_train=31.3s t_sync=3.81s | stale=1 (lver=5)
+[Generator-3] step 6/10: gen=246.4s wver=4
+[Learner] step  16 (gen 3) | reward=0.619 acc=0.484 loss=-0.1083 kl=0.0033 | t_overlap=28.2s t_train=32.6s t_sync=0.00s | stale=1 (lver=5)
+[Generator-1] step 6/10: gen=286.2s wver=4
+[Generator-2] step 6/10: gen=280.4s wver=4
+[Learner] step  17 (gen 1) | reward=0.759 acc=0.609 loss=-0.2165 kl=0.0040 | t_overlap=158.5s t_train=33.2s t_sync=0.00s | stale=1 (lver=5)
+[Generator-3] step 7/10: gen=252.1s wver=5
+[Learner] step  18 (gen 2) | reward=0.728 acc=0.562 loss=0.0004 kl=0.0039 | t_overlap=0.1s t_train=30.3s t_sync=3.93s | stale=1 (lver=6)
+[Learner] step  19 (gen 3) | reward=0.541 acc=0.391 loss=-0.1082 kl=0.0036 | t_overlap=0.1s t_train=33.7s t_sync=0.00s | stale=1 (lver=6)
+[Generator-1] step 7/10: gen=266.3s wver=5
+[Learner] step  20 (gen 1) | reward=0.672 acc=0.516 loss=-0.2167 kl=0.0033 | t_overlap=165.5s t_train=29.4s t_sync=0.00s | stale=1 (lver=6)
+[Generator-2] step 7/10: gen=280.5s wver=5
+[Generator-3] step 8/10: gen=265.1s wver=5
+[Learner] step  21 (gen 2) | reward=0.709 acc=0.547 loss=0.0003 kl=0.0038 | t_overlap=10.3s t_train=27.6s t_sync=3.78s | stale=1 (lver=7)
+[Learner] step  22 (gen 3) | reward=0.700 acc=0.547 loss=-0.2164 kl=0.0028 | t_overlap=0.1s t_train=30.7s t_sync=0.00s | stale=2 (lver=7)
+[Generator-3] step 9/10: gen=228.6s wver=6
+[Generator-1] step 8/10: gen=310.5s wver=6
+[Learner] step  23 (gen 3) | reward=0.584 acc=0.422 loss=0.0722 kl=0.0043 | t_overlap=187.4s t_train=33.3s t_sync=0.00s | stale=1 (lver=7)
+[Generator-2] step 8/10: gen=303.1s wver=6
+[Learner] step  24 (gen 1) | reward=0.866 acc=0.703 loss=-0.2167 kl=0.0034 | t_overlap=0.1s t_train=26.6s t_sync=2.61s | stale=1 (lver=8)
+[Learner] step  25 (gen 2) | reward=0.869 acc=0.703 loss=-0.2160 kl=0.0080 | t_overlap=0.1s t_train=32.0s t_sync=0.00s | stale=2 (lver=8)
+[Generator-3] step 10/10: gen=233.3s wver=7
+[Generator-3] done, sent stop signal.
+[Learner] step  26 (gen 3) | reward=0.738 acc=0.562 loss=-0.1445 kl=0.0056 | t_overlap=139.0s t_train=30.7s t_sync=0.00s | stale=1 (lver=8)
+[Learner] received stop signal 1/3
+[Generator-1] step 9/10: gen=286.4s wver=7
+[Learner] step  27 (gen 1) | reward=0.725 acc=0.562 loss=-0.1080 kl=0.0082 | t_overlap=44.5s t_train=35.9s t_sync=3.77s | stale=1 (lver=9)
+[Generator-2] step 9/10: gen=312.2s wver=7
+[Learner] step  28 (gen 2) | reward=0.853 acc=0.688 loss=-0.3252 kl=0.0077 | t_overlap=18.5s t_train=34.2s t_sync=0.00s | stale=2 (lver=9)
+[Generator-1] step 10/10: gen=284.5s wver=8
+[Generator-1] done, sent stop signal.
+[Learner] step  29 (gen 1) | reward=0.541 acc=0.375 loss=-0.0362 kl=0.0082 | t_overlap=192.6s t_train=34.2s t_sync=0.00s | stale=1 (lver=9)
+[Learner] received stop signal 2/3
+[Generator-2] step 10/10: gen=297.5s wver=9
+[Generator-2] done, sent stop signal.
+[Learner] step  30 (gen 2) | reward=0.666 acc=0.516 loss=-0.1080 kl=0.0072 | t_overlap=37.1s t_train=33.7s t_sync=2.77s | stale=0 (lver=10)
+[Learner] received stop signal 3/3
+[Learner] saved metrics to /data/project/v2i_results/metrics.json
+[Main] all workers finished.
+
+============================================================
+Training Summary (V2i — 30 steps)
+============================================================
+  Early (1-10):    reward=0.683  acc=0.556
+  Late  (last 10): reward=0.725  acc=0.562
+
+  Avg per learner step:
+    t_overlap (queue wait): 67.61s (67%)
+    t_train:                31.45s (31%)
+    t_sync:                 1.257s (1%)
+    t_total:                100.31s
+    Throughput:             0.64 samples/sec
+
+  Avg staleness: 0.97 rounds
+  Generator wall (t_gen): 279.3s

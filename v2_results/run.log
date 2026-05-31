@@ -1,0 +1,106 @@
+============================================================
+V2 Pipeline GRPO - 4-GPU
+============================================================
+  Learner: cuda:0  |  Generators: cuda:1,2,3
+  Batch: 8 x 8 = 64 samples per gen step
+  Rounds: 10 (3 learner steps per round = 30 total)
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  Loaded 7473 training problems
+  Learner PID: 33838
+  Generator-1 PID: 33877
+[Generator-1] start on cuda:1, PID=33877
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:35,  9.51it/s]Loading weights:  26%|██▌       | 87/338 [00:00<00:00, 474.19it/s]Loading weights:  40%|███▉      | 135/338 [00:00<00:00, 449.04it/s]Loading weights:  54%|█████▍    | 183/338 [00:00<00:00, 436.69it/s]Loading weights:  68%|██████▊   | 231/338 [00:00<00:00, 429.04it/s]Loading weights:  83%|████████▎ | 279/338 [00:00<00:00, 427.95it/s]Loading weights:  97%|█████████▋| 327/338 [00:00<00:00, 427.79it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 425.26it/s]
+  Generator-2 PID: 33925
+[Generator-2] start on cuda:2, PID=33925
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:38,  8.79it/s]Loading weights:  22%|██▏       | 76/338 [00:00<00:00, 417.31it/s]Loading weights:  36%|███▋      | 123/338 [00:00<00:00, 431.39it/s]Loading weights:  51%|█████     | 171/338 [00:00<00:00, 443.03it/s]Loading weights:  65%|██████▍   | 219/338 [00:00<00:00, 439.28it/s]Loading weights:  78%|███████▊  | 264/338 [00:00<00:00, 437.27it/s]Loading weights:  91%|█████████▏| 309/338 [00:00<00:00, 428.58it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 418.58it/s]
+  Generator-3 PID: 34074
+[Generator-3] start on cuda:3, PID=34074
+[Learner] start on cuda:0, PID=33838
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:44,  7.63it/s]Loading weights:   5%|▌         | 17/338 [00:00<00:01, 166.02it/s]Loading weights:  20%|█▉        | 67/338 [00:00<00:00, 346.89it/s]Loading weights:  19%|█▉        | 64/338 [00:00<00:00, 329.31it/s]Loading weights:  33%|███▎      | 112/338 [00:00<00:00, 368.42it/s]Loading weights:  35%|███▍      | 118/338 [00:00<00:00, 422.85it/s]Loading weights:  47%|████▋     | 160/338 [00:00<00:00, 399.23it/s]Loading weights:  48%|████▊     | 161/338 [00:00<00:00, 409.81it/s]Loading weights:  62%|██████▏   | 209/338 [00:00<00:00, 423.65it/s]Loading weights:  62%|██████▏   | 208/338 [00:00<00:00, 423.13it/s]Loading weights:  76%|███████▌  | 256/338 [00:00<00:00, 426.62it/s]Loading weights:  76%|███████▌  | 257/338 [00:00<00:00, 444.23it/s]Loading weights:  90%|█████████ | 305/338 [00:00<00:00, 446.18it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 412.64it/s]
+Loading weights:  90%|█████████ | 305/338 [00:00<00:00, 453.64it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 436.88it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:42,  7.96it/s]Loading weights:  26%|██▌       | 87/338 [00:00<00:00, 418.91it/s]Loading weights:  40%|███▉      | 135/338 [00:00<00:00, 428.89it/s]Loading weights:  53%|█████▎    | 179/338 [00:00<00:00, 423.48it/s]Loading weights:  66%|██████▌   | 222/338 [00:00<00:00, 401.04it/s]Loading weights:  79%|███████▉  | 267/338 [00:00<00:00, 406.57it/s]Loading weights:  93%|█████████▎| 315/338 [00:00<00:00, 424.79it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 408.21it/s]
+[Learner] step   1 (round  1, gen 1) | reward=0.706 acc=0.578 loss=-0.1084 kl=0.0000 | t_gen=152.8s t_train_amort=16.6s t_wait_amort=51.5s t_sync_amort=0.15s
+[Learner] step   2 (round  1, gen 2) | reward=0.584 acc=0.484 loss=-0.0002 kl=0.0002 | t_gen=152.7s t_train_amort=16.6s t_wait_amort=51.5s t_sync_amort=0.15s
+[Learner] step   3 (round  1, gen 3) | reward=0.716 acc=0.594 loss=-0.1086 kl=0.0009 | t_gen=155.3s t_train_amort=16.6s t_wait_amort=51.5s t_sync_amort=0.15s
+[Generator-1] round 1/10: gen=152.8s sync_wait=62.0s total=215.0s
+[Generator-3] round 1/10: gen=155.3s sync_wait=50.4s total=205.8s
+[Generator-2] round 1/10: gen=152.7s sync_wait=57.6s total=210.4s
+[Learner] step   4 (round  2, gen 1) | reward=0.675 acc=0.531 loss=0.0002 kl=0.0018 | t_gen=147.1s t_train_amort=16.3s t_wait_amort=51.3s t_sync_amort=0.01s
+[Learner] step   5 (round  2, gen 2) | reward=0.797 acc=0.641 loss=-0.2168 kl=0.0020 | t_gen=150.4s t_train_amort=16.3s t_wait_amort=51.3s t_sync_amort=0.01s
+[Learner] step   6 (round  2, gen 3) | reward=0.697 acc=0.547 loss=-0.1082 kl=0.0033 | t_gen=153.7s t_train_amort=16.3s t_wait_amort=51.3s t_sync_amort=0.01s
+[Generator-1] round 2/10: gen=147.1s sync_wait=0.1s total=202.8s
+[Generator-2] round 2/10: gen=150.4s sync_wait=0.1s total=202.8s
+[Generator-3] round 2/10: gen=153.7s sync_wait=0.1s total=202.8s
+[Learner] step   7 (round  3, gen 2) | reward=0.856 acc=0.688 loss=-0.1078 kl=0.0057 | t_gen=150.8s t_train_amort=16.3s t_wait_amort=51.0s t_sync_amort=0.01s
+[Learner] step   8 (round  3, gen 1) | reward=0.694 acc=0.547 loss=-0.1447 kl=0.0048 | t_gen=151.4s t_train_amort=16.3s t_wait_amort=51.0s t_sync_amort=0.01s
+[Learner] step   9 (round  3, gen 3) | reward=0.741 acc=0.594 loss=-0.2169 kl=0.0065 | t_gen=152.9s t_train_amort=16.3s t_wait_amort=51.0s t_sync_amort=0.01s
+[Generator-1] round 3/10: gen=151.4s sync_wait=0.1s total=202.0s
+[Generator-2] round 3/10: gen=150.8s sync_wait=0.1s total=202.0s
+[Generator-3] round 3/10: gen=152.9s sync_wait=0.1s total=202.0s
+[Learner] step  10 (round  4, gen 2) | reward=0.562 acc=0.406 loss=0.0007 kl=0.0073 | t_gen=151.0s t_train_amort=16.3s t_wait_amort=51.9s t_sync_amort=0.01s
+[Learner] step  11 (round  4, gen 1) | reward=0.709 acc=0.531 loss=-0.1079 kl=0.0084 | t_gen=151.8s t_train_amort=16.3s t_wait_amort=51.9s t_sync_amort=0.01s
+[Learner] step  12 (round  4, gen 3) | reward=0.784 acc=0.625 loss=-0.2160 kl=0.0090 | t_gen=155.5s t_train_amort=16.3s t_wait_amort=51.9s t_sync_amort=0.01s
+[Generator-2] round 4/10: gen=151.0s sync_wait=0.1s total=204.5s
+[Generator-1] round 4/10: gen=151.8s sync_wait=0.1s total=204.5s
+[Generator-3] round 4/10: gen=155.5s sync_wait=0.1s total=204.5s
+[Learner] step  13 (round  5, gen 2) | reward=0.731 acc=0.562 loss=-0.2159 kl=0.0095 | t_gen=151.0s t_train_amort=16.4s t_wait_amort=51.9s t_sync_amort=0.01s
+[Learner] step  14 (round  5, gen 1) | reward=0.766 acc=0.609 loss=-0.2161 kl=0.0102 | t_gen=151.5s t_train_amort=16.4s t_wait_amort=51.9s t_sync_amort=0.01s
+[Learner] step  15 (round  5, gen 3) | reward=0.778 acc=0.625 loss=0.0005 kl=0.0081 | t_gen=155.6s t_train_amort=16.4s t_wait_amort=51.9s t_sync_amort=0.01s
+[Generator-2] round 5/10: gen=151.0s sync_wait=0.1s total=204.8s
+[Generator-1] round 5/10: gen=151.5s sync_wait=0.1s total=204.8s
+[Generator-3] round 5/10: gen=155.6s sync_wait=0.1s total=204.8s
+[Learner] step  16 (round  6, gen 2) | reward=0.619 acc=0.438 loss=-0.1070 kl=0.0150 | t_gen=150.9s t_train_amort=16.3s t_wait_amort=51.9s t_sync_amort=0.01s
+[Learner] step  17 (round  6, gen 1) | reward=0.809 acc=0.641 loss=-0.1068 kl=0.0159 | t_gen=151.1s t_train_amort=16.3s t_wait_amort=51.9s t_sync_amort=0.01s
+[Learner] step  18 (round  6, gen 3) | reward=0.641 acc=0.469 loss=0.0010 kl=0.0120 | t_gen=155.6s t_train_amort=16.3s t_wait_amort=51.9s t_sync_amort=0.01s
+[Generator-2] round 6/10: gen=150.9s sync_wait=0.1s total=204.6s
+[Generator-1] round 6/10: gen=151.1s sync_wait=0.1s total=204.6s
+[Generator-3] round 6/10: gen=155.6s sync_wait=0.1s total=204.6s
+[Learner] step  19 (round  7, gen 2) | reward=0.750 acc=0.594 loss=-0.1071 kl=0.0130 | t_gen=150.8s t_train_amort=16.3s t_wait_amort=51.7s t_sync_amort=0.01s
+[Learner] step  20 (round  7, gen 1) | reward=0.672 acc=0.500 loss=-0.1072 kl=0.0141 | t_gen=151.7s t_train_amort=16.3s t_wait_amort=51.7s t_sync_amort=0.01s
+[Learner] step  21 (round  7, gen 3) | reward=0.566 acc=0.391 loss=0.0017 kl=0.0157 | t_gen=154.9s t_train_amort=16.3s t_wait_amort=51.7s t_sync_amort=0.01s
+[Generator-2] round 7/10: gen=150.8s sync_wait=0.1s total=203.9s
+[Generator-1] round 7/10: gen=151.7s sync_wait=0.1s total=203.9s
+[Generator-3] round 7/10: gen=154.9s sync_wait=0.1s total=203.9s
+[Learner] step  22 (round  8, gen 2) | reward=0.831 acc=0.656 loss=-0.2150 kl=0.0177 | t_gen=150.8s t_train_amort=16.3s t_wait_amort=51.9s t_sync_amort=0.01s
+[Learner] step  23 (round  8, gen 1) | reward=0.744 acc=0.562 loss=0.0018 kl=0.0189 | t_gen=151.7s t_train_amort=16.3s t_wait_amort=51.9s t_sync_amort=0.01s
+[Learner] step  24 (round  8, gen 3) | reward=0.691 acc=0.516 loss=-0.2152 kl=0.0180 | t_gen=155.6s t_train_amort=16.3s t_wait_amort=51.9s t_sync_amort=0.01s
+[Generator-1] round 8/10: gen=151.7s sync_wait=0.1s total=204.7s
+[Generator-2] round 8/10: gen=150.8s sync_wait=0.1s total=204.7s
+[Generator-3] round 8/10: gen=155.6s sync_wait=0.1s total=204.7s
+[Learner] step  25 (round  9, gen 2) | reward=0.803 acc=0.625 loss=-0.1066 kl=0.0185 | t_gen=150.8s t_train_amort=16.3s t_wait_amort=51.9s t_sync_amort=0.01s
+[Learner] step  26 (round  9, gen 1) | reward=0.650 acc=0.469 loss=0.0018 kl=0.0190 | t_gen=151.5s t_train_amort=16.3s t_wait_amort=51.9s t_sync_amort=0.01s
+[Learner] step  27 (round  9, gen 3) | reward=0.550 acc=0.375 loss=0.0732 kl=0.0156 | t_gen=155.7s t_train_amort=16.3s t_wait_amort=51.9s t_sync_amort=0.01s
+[Generator-3] round 9/10: gen=155.7s sync_wait=0.1s total=204.8s
+[Generator-2] round 9/10: gen=150.8s sync_wait=0.1s total=204.8s
+[Generator-1] round 9/10: gen=151.5s sync_wait=0.1s total=204.8s
+[Learner] step  28 (round 10, gen 2) | reward=0.647 acc=0.484 loss=-0.1070 kl=0.0144 | t_gen=150.9s t_train_amort=16.3s t_wait_amort=52.0s t_sync_amort=0.01s
+[Learner] step  29 (round 10, gen 1) | reward=0.491 acc=0.312 loss=-0.1067 kl=0.0180 | t_gen=152.0s t_train_amort=16.3s t_wait_amort=52.0s t_sync_amort=0.01s
+[Learner] step  30 (round 10, gen 3) | reward=0.588 acc=0.391 loss=0.0737 kl=0.0184 | t_gen=155.9s t_train_amort=16.3s t_wait_amort=52.0s t_sync_amort=0.01s
+[Generator-2] round 10/10: gen=150.9s sync_wait=0.1s total=205.0s
+[Generator-1] round 10/10: gen=152.0s sync_wait=0.1s total=205.0s
+[Generator-3] round 10/10: gen=155.9s sync_wait=0.1s total=205.0s
+[Learner] saved metrics to /data/project/v2_results/metrics.json
+[Generator-3] done.
+[Generator-1] done.
+[Generator-2] done.
+[Main] all workers finished.
+
+============================================================
+Training Summary (V2 - 4-GPU Pipeline)
+============================================================
+  Steps recorded: 30
+  Early (1-10):  mean_reward=0.703, acc=0.561
+  Late  (last 10): mean_reward=0.656, acc=0.478
+
+  Avg amortized per learner step:
+    Generation (per-gen wall): 152.4s
+    Queue wait (amortized):    51.7s
+    Training  (amortized):     16.3s
+    Sync     (amortized):      0.02s
+    Round total / 3:           68.1s
+    Throughput:                0.94 samples/sec

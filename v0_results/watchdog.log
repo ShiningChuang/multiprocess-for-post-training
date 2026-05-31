@@ -1,0 +1,18 @@
+Watchdog started. Waiting for step 50 in /data/project/v0_results/run.log (PID=8552)...
+Step 50 reached. Waiting 30s for training step to finish writing...
+Sending SIGTERM to PID 8552...
+V0 stopped at step 50.
+---
+Final log entries:
+Step    5 | reward=0.475 | acc=0.312 | loss=-12.0480 | kl=0.0211 | gen=364.6s score=0.001s train=8.5s total=373.1s
+Step   10 | reward=0.825 | acc=0.625 | loss=-2.4271 | kl=0.1920 | gen=201.7s score=0.000s train=8.5s total=210.2s
+Step   15 | reward=0.812 | acc=0.625 | loss=0.6762 | kl=0.2296 | gen=177.8s score=0.000s train=8.4s total=186.2s
+Step   20 | reward=0.750 | acc=0.562 | loss=-3.7840 | kl=0.1916 | gen=201.7s score=0.001s train=8.5s total=210.2s
+Step   25 | reward=0.562 | acc=0.375 | loss=-2.4232 | kl=0.1471 | gen=265.9s score=0.001s train=9.1s total=274.9s
+Step   30 | reward=0.700 | acc=0.500 | loss=-6.7636 | kl=0.1640 | gen=271.1s score=0.001s train=8.1s total=279.1s
+Step   35 | reward=0.500 | acc=0.312 | loss=-9.1772 | kl=0.2136 | gen=313.6s score=0.000s train=9.3s total=322.9s
+Step   40 | reward=0.550 | acc=0.375 | loss=-0.7451 | kl=0.2659 | gen=350.9s score=0.000s train=9.3s total=360.2s
+Step   45 | reward=0.625 | acc=0.438 | loss=-2.3419 | kl=0.2548 | gen=333.6s score=0.000s train=8.9s total=342.6s
+Step   50 | reward=0.375 | acc=0.188 | loss=2.7807 | kl=0.2297 | gen=252.8s score=0.000s train=10.2s total=263.0s
+---
+Total steps logged: 11

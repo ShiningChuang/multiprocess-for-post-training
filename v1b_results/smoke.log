@@ -1,0 +1,86 @@
+============================================================
+V1b Multiprocess GRPO - Two Processes, One GPU
+============================================================
+  Generator + Learner both on cuda:0
+  Batch: 4 × 4 = 16 samples/step
+  Steps: 30
+  Queue max size: 2
+  Weight sync every: 1 steps
+
+
+Loading GSM8K dataset...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  Loaded 7473 training problems
+
+Launching Generator and Learner processes...
+[Generator] Starting on cuda:0, PID=31697
+  Generator PID: 31697 (sleeping 15s for CUDA init)
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:35,  9.56it/s]Loading weights:  22%|██▏       | 75/338 [00:00<00:00, 418.94it/s]Loading weights:  36%|███▋      | 123/338 [00:00<00:00, 444.03it/s]Loading weights:  51%|█████     | 171/338 [00:00<00:00, 438.80it/s]Loading weights:  65%|██████▌   | 220/338 [00:00<00:00, 450.97it/s]Loading weights:  79%|███████▊  | 266/338 [00:00<00:00, 452.25it/s]Loading weights:  92%|█████████▏| 312/338 [00:00<00:00, 444.05it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 431.63it/s]
+  Learner PID: 31872
+[Learner] Starting on cuda:0, PID=31872
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   8%|▊         | 27/338 [00:00<00:01, 238.44it/s]Loading weights:  22%|██▏       | 75/338 [00:00<00:00, 371.96it/s]Loading weights:  36%|███▋      | 123/338 [00:00<00:00, 405.12it/s]Loading weights:  51%|█████     | 171/338 [00:00<00:00, 426.99it/s]Loading weights:  65%|██████▌   | 221/338 [00:00<00:00, 450.83it/s]Loading weights:  79%|███████▉  | 268/338 [00:00<00:00, 448.48it/s]Loading weights:  94%|█████████▍| 317/338 [00:00<00:00, 456.93it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 440.14it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:43,  7.78it/s]Loading weights:  26%|██▌       | 87/338 [00:00<00:00, 430.92it/s]Loading weights:  40%|███▉      | 135/338 [00:00<00:00, 444.19it/s]Loading weights:  55%|█████▍    | 185/338 [00:00<00:00, 458.57it/s]Loading weights:  69%|██████▉   | 233/338 [00:00<00:00, 459.21it/s]Loading weights:  83%|████████▎ | 280/338 [00:00<00:00, 455.86it/s]Loading weights:  97%|█████████▋| 329/338 [00:00<00:00, 459.08it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 442.84it/s]
+[Generator] Step 1 done: gen=78.7s score=0.001s total=78.7s
+[Learner] ERROR: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 15.77 GiB of which 9.62 MiB is free. Process 31697 has 5.51 GiB memory in use. Including non-PyTorch memory, this process has 10.25 GiB memory in use. Of the allocated memory 9.79 GiB is allocated by PyTorch, and 103.85 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/data/project/v1b_multiproc.py", line 353, in learner_process
+    outputs = policy_model(full_ids, use_cache=False)
+  File "/data/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/peft/peft_model.py", line 1993, in forward
+    return self.base_model(
+  File "/data/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/peft/tuners/tuners_utils.py", line 330, in forward
+    return self.model.forward(*args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/transformers/utils/generic.py", line 903, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/transformers/models/qwen2/modeling_qwen2.py", line 462, in forward
+    outputs: BaseModelOutputWithPast = self.model(
+  File "/data/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/transformers/utils/generic.py", line 1032, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/transformers/utils/output_capturing.py", line 252, in wrapper
+    outputs = func(self, *args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/transformers/models/qwen2/modeling_qwen2.py", line 399, in forward
+    hidden_states = decoder_layer(
+  File "/data/venv/lib/python3.10/site-packages/transformers/modeling_layers.py", line 93, in __call__
+    return super().__call__(*args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/transformers/models/qwen2/modeling_qwen2.py", line 307, in forward
+    hidden_states = self.mlp(hidden_states)
+  File "/data/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/transformers/models/qwen2/modeling_qwen2.py", line 47, in forward
+    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+  File "/data/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/peft/tuners/lora/layer.py", line 969, in forward
+    result = result + lora_B(lora_A(dropout(x))) * scaling
+  File "/data/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/venv/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 15.77 GiB of which 9.62 MiB is free. Process 31697 has 5.51 GiB memory in use. Including non-PyTorch memory, this process has 10.25 GiB memory in use. Of the allocated memory 9.79 GiB is allocated by PyTorch, and 103.85 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[Generator] Step 2 done: gen=77.5s score=0.000s total=77.5s
+[Generator] Step 3 done: gen=77.4s score=0.000s total=77.4s
+/usr/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 8 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

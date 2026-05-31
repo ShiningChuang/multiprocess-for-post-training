@@ -1,0 +1,103 @@
+============================================================
+V2f Fixed Async Pipeline GRPO - 4-GPU
+============================================================
+  Rollout transport: raw mp.Queue (no Manager)
+  Weight sync:       /dev/shm + atomic rename + mp.Value version
+  Learner cuda:0 | Generators cuda:1,2,3
+  Batch 8 x Group 8 = 64 samples/step
+  Total steps: 30 (each generator: 10)
+  Sync every 3 learner steps
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  Loaded 7473 training problems
+  Learner PID: 84150
+[Learner] start on cuda:0, PID=84150
+  Generator-1 PID: 84186
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[Generator-1] start on cuda:1, PID=84186
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:  13%|█▎        | 45/338 [00:00<00:00, 418.15it/s]Loading weights:  26%|██▌       | 87/338 [00:00<00:01, 248.89it/s]Loading weights:  34%|███▍      | 116/338 [00:00<00:00, 248.17it/s]Loading weights:  42%|████▏     | 143/338 [00:00<00:00, 240.71it/s]Loading weights:  54%|█████▍    | 183/338 [00:00<00:00, 281.76it/s]Loading weights:  63%|██████▎   | 213/338 [00:00<00:00, 262.90it/s]Loading weights:  71%|███████▏  | 241/338 [00:00<00:00, 266.30it/s]Loading weights:  80%|███████▉  | 269/338 [00:01<00:00, 248.24it/s]Loading weights:  90%|████████▉ | 303/338 [00:01<00:00, 272.06it/s]Loading weights:  98%|█████████▊| 331/338 [00:01<00:00, 266.22it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 270.67it/s]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:42,  7.99it/s]Loading weights:  19%|█▊        | 63/338 [00:00<00:00, 310.02it/s]Loading weights:  28%|██▊       | 96/338 [00:00<00:00, 286.48it/s]Loading weights:  37%|███▋      | 126/338 [00:00<00:00, 260.63it/s]Loading weights:  45%|████▌     | 153/338 [00:00<00:00, 216.87it/s]Loading weights:  52%|█████▏    | 177/338 [00:00<00:00, 222.79it/s]Loading weights:  59%|█████▉    | 201/338 [00:00<00:00, 224.05it/s]Loading weights:  69%|██████▊   | 232/338 [00:01<00:00, 211.27it/s]Loading weights:  76%|███████▌  | 257/338 [00:01<00:00, 218.99it/s]Loading weights:  83%|████████▎ | 281/338 [00:01<00:00, 213.18it/s]Loading weights:  90%|████████▉ | 303/338 [00:01<00:00, 212.16it/s]Loading weights:  97%|█████████▋| 327/338 [00:01<00:00, 217.96it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 226.75it/s]
+  Generator-2 PID: 84233
+[Generator-2] start on cuda:2, PID=84233
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<01:28,  3.82it/s][transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:  19%|█▉        | 64/338 [00:00<00:01, 223.87it/s]Loading weights:  30%|██▉       | 101/338 [00:00<00:00, 253.77it/s]Loading weights:  40%|███▉      | 135/338 [00:00<00:00, 263.45it/s]Loading weights:  49%|████▉     | 167/338 [00:00<00:00, 254.52it/s]Loading weights:  58%|█████▊    | 196/338 [00:00<00:00, 220.70it/s]Loading weights:  65%|██████▌   | 221/338 [00:01<00:00, 202.66it/s]Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:48,  7.01it/s]Loading weights:  72%|███████▏  | 245/338 [00:01<00:00, 178.48it/s]Loading weights:  16%|█▌        | 53/338 [00:00<00:01, 253.48it/s]Loading weights:  80%|███████▉  | 269/338 [00:01<00:00, 181.21it/s]Loading weights:  26%|██▌       | 88/338 [00:00<00:00, 286.26it/s]Loading weights:  86%|████████▋ | 292/338 [00:01<00:00, 191.67it/s]Loading weights:  35%|███▌      | 119/338 [00:00<00:00, 290.94it/s]Loading weights:  93%|█████████▎| 313/338 [00:01<00:00, 184.46it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 201.54it/s]
+Loading weights:  44%|████▍     | 150/338 [00:00<00:00, 244.87it/s]Loading weights:  53%|█████▎    | 178/338 [00:00<00:00, 236.56it/s]Loading weights:  60%|██████    | 203/338 [00:00<00:00, 212.28it/s]Loading weights:  71%|███████   | 239/338 [00:01<00:00, 237.92it/s]Loading weights:  78%|███████▊  | 264/338 [00:01<00:00, 221.78it/s]Loading weights:  85%|████████▍ | 287/338 [00:01<00:00, 222.40it/s]Loading weights:  92%|█████████▏| 310/338 [00:01<00:00, 199.66it/s]Loading weights:  98%|█████████▊| 331/338 [00:01<00:00, 196.10it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 223.04it/s]
+  Generator-3 PID: 84452
+[Generator-3] start on cuda:3, PID=84452
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:59,  5.66it/s]Loading weights:  19%|█▉        | 64/338 [00:00<00:01, 272.79it/s]Loading weights:  29%|██▉       | 98/338 [00:00<00:00, 248.73it/s]Loading weights:  38%|███▊      | 127/338 [00:00<00:00, 249.56it/s]Loading weights:  46%|████▌     | 155/338 [00:00<00:00, 222.26it/s]Loading weights:  54%|█████▎    | 181/338 [00:00<00:00, 229.39it/s]Loading weights:  61%|██████    | 206/338 [00:00<00:00, 227.55it/s]Loading weights:  68%|██████▊   | 230/338 [00:01<00:00, 225.47it/s]Loading weights:  76%|███████▌  | 256/338 [00:01<00:00, 234.00it/s]Loading weights:  83%|████████▎ | 280/338 [00:01<00:00, 216.88it/s]Loading weights:  90%|████████▉ | 304/338 [00:01<00:00, 215.15it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 229.94it/s]
+[Generator-1] step 1/10: gen=286.1s wver=0 wload=0.00s
+[Generator-3] step 1/10: gen=284.7s wver=0 wload=0.00s
+[Learner] step   1 (gen 1) | reward=0.756 acc=0.625 loss=-0.0000 kl=0.0000 | t_overlap=288.2s t_train=32.7s t_sync=0.00s | stale=0 (lver=0)
+[Generator-2] step 1/10: gen=343.8s wver=0 wload=0.00s
+[Learner] step   2 (gen 3) | reward=0.850 acc=0.719 loss=-0.3253 kl=-0.0007 | t_overlap=0.3s t_train=30.5s t_sync=0.00s | stale=0 (lver=0)
+[Learner] step   3 (gen 2) | reward=0.569 acc=0.469 loss=-0.0004 kl=-0.0006 | t_overlap=0.5s t_train=33.2s t_sync=0.70s | stale=0 (lver=1)
+[Generator-1] step 2/10: gen=284.6s wver=0 wload=0.00s
+[Generator-3] step 2/10: gen=277.7s wver=0 wload=0.00s
+[Learner] step   4 (gen 1) | reward=0.644 acc=0.547 loss=-0.1082 kl=-0.0016 | t_overlap=186.1s t_train=31.8s t_sync=0.00s | stale=1 (lver=1)
+[Learner] step   5 (gen 3) | reward=0.547 acc=0.438 loss=-0.1083 kl=-0.0021 | t_overlap=0.1s t_train=31.4s t_sync=0.00s | stale=1 (lver=1)
+[Generator-2] step 2/10: gen=330.5s wver=0 wload=0.00s
+[Learner] step   6 (gen 2) | reward=0.722 acc=0.578 loss=-0.1075 kl=-0.0022 | t_overlap=47.0s t_train=31.9s t_sync=0.76s | stale=1 (lver=2)
+[Generator-1] step 3/10: gen=273.6s wver=1 wload=0.55s
+[Generator-3] step 3/10: gen=274.8s wver=1 wload=0.44s
+[Learner] step   7 (gen 1) | reward=0.606 acc=0.469 loss=0.0719 kl=0.0003 | t_overlap=130.7s t_train=31.5s t_sync=0.00s | stale=1 (lver=2)
+[Learner] step   8 (gen 3) | reward=0.747 acc=0.594 loss=-0.2166 kl=0.0003 | t_overlap=0.1s t_train=31.9s t_sync=0.00s | stale=1 (lver=2)
+[Generator-2] step 3/10: gen=325.9s wver=1 wload=0.59s
+[Learner] step   9 (gen 2) | reward=0.728 acc=0.578 loss=-0.1087 kl=-0.0001 | t_overlap=99.2s t_train=27.5s t_sync=0.79s | stale=1 (lver=3)
+[Generator-3] step 4/10: gen=228.2s wver=2 wload=0.47s
+[Generator-1] step 4/10: gen=238.4s wver=2 wload=0.52s
+[Learner] step  10 (gen 3) | reward=0.709 acc=0.562 loss=-0.1080 kl=0.0010 | t_overlap=45.1s t_train=26.1s t_sync=0.00s | stale=1 (lver=3)
+[Learner] step  11 (gen 1) | reward=0.612 acc=0.469 loss=-0.0000 kl=0.0014 | t_overlap=0.0s t_train=30.2s t_sync=0.00s | stale=1 (lver=3)
+[Generator-3] step 5/10: gen=263.3s wver=3 wload=0.42s
+[Generator-1] step 5/10: gen=264.7s wver=3 wload=0.45s
+[Generator-2] step 4/10: gen=352.0s wver=2 wload=0.32s
+[Learner] step  12 (gen 3) | reward=0.681 acc=0.547 loss=-0.0001 kl=0.0009 | t_overlap=207.4s t_train=37.0s t_sync=0.65s | stale=0 (lver=4)
+[Learner] step  13 (gen 1) | reward=0.819 acc=0.672 loss=-0.1083 kl=0.0029 | t_overlap=0.1s t_train=38.1s t_sync=0.00s | stale=1 (lver=4)
+[Learner] step  14 (gen 2) | reward=0.550 acc=0.406 loss=-0.1084 kl=0.0031 | t_overlap=0.1s t_train=37.0s t_sync=0.00s | stale=2 (lver=4)
+[Generator-2] step 5/10: gen=246.2s wver=3 wload=0.55s
+[Generator-1] step 6/10: gen=271.6s wver=3 wload=0.00s
+[Generator-3] step 6/10: gen=282.0s wver=3 wload=0.00s
+[Learner] step  15 (gen 2) | reward=0.763 acc=0.609 loss=-0.2170 kl=0.0021 | t_overlap=149.0s t_train=32.5s t_sync=0.45s | stale=1 (lver=5)
+[Learner] step  16 (gen 1) | reward=0.800 acc=0.641 loss=-0.2171 kl=0.0026 | t_overlap=0.1s t_train=29.2s t_sync=0.00s | stale=2 (lver=5)
+[Learner] step  17 (gen 3) | reward=0.678 acc=0.531 loss=-0.0002 kl=0.0014 | t_overlap=0.1s t_train=33.8s t_sync=0.00s | stale=2 (lver=5)
+[Generator-2] step 6/10: gen=247.5s wver=4 wload=0.53s
+[Generator-3] step 7/10: gen=250.3s wver=4 wload=0.48s
+[Generator-1] step 7/10: gen=257.7s wver=4 wload=0.45s
+[Learner] step  18 (gen 2) | reward=0.606 acc=0.453 loss=0.0000 kl=0.0028 | t_overlap=152.0s t_train=39.0s t_sync=0.86s | stale=1 (lver=6)
+[Learner] step  19 (gen 3) | reward=0.466 acc=0.344 loss=-0.0002 kl=0.0013 | t_overlap=0.1s t_train=38.6s t_sync=0.00s | stale=2 (lver=6)
+[Learner] step  20 (gen 1) | reward=0.744 acc=0.594 loss=-0.3253 kl=0.0016 | t_overlap=0.1s t_train=35.7s t_sync=0.00s | stale=2 (lver=6)
+[Generator-2] step 7/10: gen=281.9s wver=5 wload=0.57s
+[Generator-3] step 8/10: gen=262.8s wver=5 wload=0.48s
+[Learner] step  21 (gen 2) | reward=0.681 acc=0.531 loss=0.0002 kl=0.0025 | t_overlap=168.0s t_train=18.7s t_sync=0.45s | stale=1 (lver=7)
+[Generator-1] step 8/10: gen=277.5s wver=5 wload=0.44s
+[Learner] step  22 (gen 3) | reward=0.641 acc=0.484 loss=-0.1081 kl=0.0014 | t_overlap=0.0s t_train=36.4s t_sync=0.00s | stale=2 (lver=7)
+[Learner] step  23 (gen 1) | reward=0.669 acc=0.531 loss=-0.0001 kl=0.0025 | t_overlap=0.1s t_train=36.8s t_sync=0.00s | stale=2 (lver=7)
+[Generator-1] step 9/10: gen=247.5s wver=7 wload=0.39s
+[Generator-3] step 9/10: gen=264.2s wver=6 wload=0.40s
+[Learner] step  24 (gen 1) | reward=0.653 acc=0.516 loss=-0.1081 kl=0.0048 | t_overlap=175.0s t_train=37.5s t_sync=0.85s | stale=0 (lver=8)
+[Generator-2] step 8/10: gen=319.2s wver=6 wload=0.57s
+[Learner] step  25 (gen 3) | reward=0.556 acc=0.406 loss=-0.0005 kl=0.0033 | t_overlap=0.1s t_train=36.0s t_sync=0.00s | stale=2 (lver=8)
+[Learner] step  26 (gen 2) | reward=0.841 acc=0.688 loss=-0.3252 kl=0.0054 | t_overlap=0.1s t_train=27.8s t_sync=0.00s | stale=2 (lver=8)
+[Generator-3] step 10/10: gen=256.7s wver=7 wload=0.47s
+[Generator-3] done.
+[Learner] ERROR: [Errno 2] No such file or directory
+Traceback (most recent call last):
+  File "/data/project/v2f_pipeline.py", line 405, in learner_worker
+    rollout = data_queue.get()
+  File "/usr/lib/python3.10/multiprocessing/queues.py", line 122, in get
+    return _ForkingPickler.loads(res)
+  File "/data/venv/lib/python3.10/site-packages/torch/multiprocessing/reductions.py", line 541, in rebuild_storage_fd
+    fd = df.detach()
+  File "/usr/lib/python3.10/multiprocessing/resource_sharer.py", line 57, in detach
+    with _resource_sharer.get_connection(self._id) as conn:
+  File "/usr/lib/python3.10/multiprocessing/resource_sharer.py", line 86, in get_connection
+    c = Client(address, authkey=process.current_process().authkey)
+  File "/usr/lib/python3.10/multiprocessing/connection.py", line 502, in Client
+    c = SocketClient(address)
+  File "/usr/lib/python3.10/multiprocessing/connection.py", line 630, in SocketClient
+    s.connect(address)
+FileNotFoundError: [Errno 2] No such file or directory
+[Generator-1] step 10/10: gen=277.1s wver=7 wload=0.00s
+[Generator-1] done.
+[Generator-2] step 9/10: gen=271.7s wver=8 wload=0.32s

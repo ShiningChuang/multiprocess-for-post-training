@@ -1,0 +1,30 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+============================================================
+V0 Serial GRPO - Single Process Baseline
+============================================================
+
+[1/5] Loading tokenizer...
+[2/5] Loading policy model with LoRA...
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:36,  9.32it/s]Loading weights:  22%|██▏       | 75/338 [00:00<00:00, 412.40it/s]Loading weights:  40%|███▉      | 135/338 [00:00<00:00, 475.40it/s]Loading weights:  58%|█████▊    | 195/338 [00:00<00:00, 516.00it/s]Loading weights:  75%|███████▌  | 255/338 [00:00<00:00, 530.21it/s]Loading weights:  93%|█████████▎| 315/338 [00:00<00:00, 543.06it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 508.24it/s]
+trainable params: 73,859,072 || all params: 1,617,573,376 || trainable%: 4.5660
+[3/5] Loading reference model (frozen)...
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:37,  8.93it/s]Loading weights:  24%|██▍       | 82/338 [00:00<00:00, 457.12it/s]Loading weights:  41%|████      | 137/338 [00:00<00:00, 485.71it/s]Loading weights:  59%|█████▉    | 200/338 [00:00<00:00, 540.81it/s]Loading weights:  76%|███████▌  | 256/338 [00:00<00:00, 530.69it/s]Loading weights:  94%|█████████▍| 317/338 [00:00<00:00, 552.27it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 517.07it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[4/5] Loading GSM8K dataset...
+  Loaded 7473 training problems
+
+[5/5] Starting training for 200 steps...
+  Batch size: 4 prompts × 4 responses = 16 samples/step
+  Device: cuda:0
+
+Step    1 | reward=0.787 | acc=0.625 | loss=-7.8812 | kl=0.0000 | gen=239.5s score=0.001s train=4.2s total=243.7s
+Step    5 | reward=0.475 | acc=0.312 | loss=-12.0480 | kl=0.0211 | gen=364.6s score=0.001s train=8.5s total=373.1s
+Step   10 | reward=0.825 | acc=0.625 | loss=-2.4271 | kl=0.1920 | gen=201.7s score=0.000s train=8.5s total=210.2s
+Step   15 | reward=0.812 | acc=0.625 | loss=0.6762 | kl=0.2296 | gen=177.8s score=0.000s train=8.4s total=186.2s
+Step   20 | reward=0.750 | acc=0.562 | loss=-3.7840 | kl=0.1916 | gen=201.7s score=0.001s train=8.5s total=210.2s
+Step   25 | reward=0.562 | acc=0.375 | loss=-2.4232 | kl=0.1471 | gen=265.9s score=0.001s train=9.1s total=274.9s
+Step   30 | reward=0.700 | acc=0.500 | loss=-6.7636 | kl=0.1640 | gen=271.1s score=0.001s train=8.1s total=279.1s
+Step   35 | reward=0.500 | acc=0.312 | loss=-9.1772 | kl=0.2136 | gen=313.6s score=0.000s train=9.3s total=322.9s
+Step   40 | reward=0.550 | acc=0.375 | loss=-0.7451 | kl=0.2659 | gen=350.9s score=0.000s train=9.3s total=360.2s
+Step   45 | reward=0.625 | acc=0.438 | loss=-2.3419 | kl=0.2548 | gen=333.6s score=0.000s train=8.9s total=342.6s
+Step   50 | reward=0.375 | acc=0.188 | loss=2.7807 | kl=0.2297 | gen=252.8s score=0.000s train=10.2s total=263.0s

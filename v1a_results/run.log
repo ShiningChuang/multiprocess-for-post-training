@@ -1,0 +1,42 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+============================================================
+V1a Serial GRPO - Fixed Algorithm + Batched Generation
+============================================================
+
+[1/5] Loading tokenizer...
+[2/5] Loading policy model with LoRA...
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:47,  7.11it/s]Loading weights:  17%|█▋        | 59/338 [00:00<00:00, 282.94it/s]Loading weights:  30%|██▉       | 101/338 [00:00<00:00, 337.62it/s]Loading weights:  43%|████▎     | 145/338 [00:00<00:00, 363.76it/s]Loading weights:  54%|█████▍    | 183/338 [00:00<00:00, 367.25it/s]Loading weights:  65%|██████▌   | 221/338 [00:00<00:00, 367.45it/s]Loading weights:  78%|███████▊  | 262/338 [00:00<00:00, 378.44it/s]Loading weights:  90%|████████▉ | 304/338 [00:00<00:00, 388.88it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 361.49it/s]
+trainable params: 73,859,072 || all params: 1,617,573,376 || trainable%: 4.5660
+[3/5] Loading reference model (frozen)...
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:34,  9.65it/s]Loading weights:  17%|█▋        | 59/338 [00:00<00:00, 328.49it/s]Loading weights:  29%|██▉       | 99/338 [00:00<00:00, 340.96it/s]Loading weights:  42%|████▏     | 143/338 [00:00<00:00, 366.87it/s]Loading weights:  53%|█████▎    | 180/338 [00:00<00:00, 362.39it/s]Loading weights:  64%|██████▍   | 217/338 [00:00<00:00, 342.39it/s]Loading weights:  75%|███████▌  | 255/338 [00:00<00:00, 352.42it/s]Loading weights:  89%|████████▉ | 301/338 [00:00<00:00, 383.50it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 362.65it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[4/5] Loading GSM8K dataset...
+  Loaded 7473 training problems
+
+[5/5] Starting training for 30 steps...
+  Batch size: 8 prompts × 8 responses = 64 samples/step
+  LR=5e-06, KL_COEFF=0.1, CLIP_EPS=0.2
+  Device: cuda:0
+
+Step    1 | reward=0.778 | acc=0.625 | loss=-0.1084 | kl=0.0000 | gen=235.6s score=0.001s train=30.3s total=265.9s
+Step    5 | reward=0.978 | acc=0.797 | loss=-0.1080 | kl=0.0040 | gen=242.1s score=0.001s train=34.4s total=276.6s
+Step   10 | reward=0.784 | acc=0.594 | loss=0.0019 | kl=0.0198 | gen=147.3s score=0.001s train=16.5s total=163.7s
+Step   15 | reward=0.600 | acc=0.422 | loss=-0.1062 | kl=0.0216 | gen=145.0s score=0.001s train=16.6s total=161.5s
+Step   20 | reward=0.691 | acc=0.516 | loss=0.0023 | kl=0.0227 | gen=151.2s score=0.001s train=16.4s total=167.7s
+Step   25 | reward=0.819 | acc=0.641 | loss=-0.1053 | kl=0.0312 | gen=149.7s score=0.001s train=16.5s total=166.2s
+Step   30 | reward=0.509 | acc=0.328 | loss=0.0748 | kl=0.0301 | gen=156.1s score=0.001s train=16.5s total=172.6s
+
+Metrics saved to /data/project/v1a_results/metrics.json
+
+============================================================
+Training Summary
+============================================================
+  Early (steps 1-20):  mean_reward=0.705, accuracy=0.541
+  Late  (last 20):     mean_reward=0.695, accuracy=0.517
+
+  Avg timing per step:
+    Generation: 175.4s (90%)
+    Scoring:    0.001s (0%)
+    Training:   20.4s (10%)
+    Total:      195.8s
+    Throughput:  0.33 samples/sec
