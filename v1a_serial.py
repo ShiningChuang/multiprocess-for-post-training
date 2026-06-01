@@ -146,7 +146,6 @@ def generate_responses_batched(model, tokenizer, prompts, group_size, max_new_to
                 top_p=0.9,
                 num_return_sequences=group_size,
                 pad_token_id=pad_token_id,
-                output_scores=True,
                 return_dict_in_generate=True,
             )
 
@@ -449,6 +448,11 @@ def main():
     with open(metrics_path, "w") as f:
         json.dump(metrics_log, f, indent=2)
     print(f"\nMetrics saved to {metrics_path}")
+
+    # Save final LoRA adapter for post-hoc evaluation
+    adapter_path = os.path.join(SAVE_DIR, "adapter")
+    policy_model.save_pretrained(adapter_path)
+    print(f"Adapter saved to {adapter_path}")
 
     print("\n" + "=" * 60)
     print("Training Summary")

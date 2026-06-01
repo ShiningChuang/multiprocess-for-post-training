@@ -464,6 +464,11 @@ def learner_worker(rank, world_size, data_queue):
             json.dump(metrics_log, f, indent=2)
         print(f"[Learner] saved metrics to {metrics_path}", flush=True)
 
+        # Save final LoRA adapter (rank 0 / learner) for post-hoc evaluation
+        adapter_path = os.path.join(SAVE_DIR, "adapter")
+        policy_model.save_pretrained(adapter_path)
+        print(f"[Learner] adapter saved to {adapter_path}", flush=True)
+
         dist.destroy_process_group()
     except Exception as e:
         print(f"[Learner] ERROR: {e}", flush=True)

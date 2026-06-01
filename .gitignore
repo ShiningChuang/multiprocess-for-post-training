@@ -1,0 +1,43 @@
+# ─── Model weights / LoRA adapters (large binaries, regenerable by training) ───
+**/adapter/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.gguf
+
+# ─── HuggingFace datasets / model caches (if any land inside the repo) ───
+*.arrow
+*.parquet
+.cache/
+
+# ─── CUDA installer / archives ───
+*.run
+*.tar
+*.tar.gz
+*.zip
+
+# ─── Python ───
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# ─── Secrets / SSH keys (NEVER commit) ───
+yes
+yes.pub
+id_*
+*_rsa
+*_ed25519
+*.pem
+*.key
+.env
+
+# ─── OS / editor cruft ───
+.DS_Store
+*.swp
+
+# Kept on purpose (small + useful): *.py  *.md  *.json (metrics)  *.log  *.csv  *.sh

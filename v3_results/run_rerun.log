@@ -1,0 +1,74 @@
+============================================================
+V3 Data-Parallel GRPO - 4 symmetric actor-learners
+============================================================
+  Every GPU: generate own batch -> train -> all-reduce grads -> step
+  Batch 8 x Group 8 = 64 samples/rank/round
+  Effective batch/update: 256 samples
+  Rounds: 10
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  Loaded 7473 training problems
+  rank0 PID: 495263
+  rank1 PID: 495300
+[rank1] start on cuda:1, PID=495300
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:33,  9.99it/s]Loading weights:  19%|█▉        | 65/338 [00:00<00:00, 376.90it/s]Loading weights:  33%|███▎      | 111/338 [00:00<00:00, 408.17it/s]Loading weights:  47%|████▋     | 159/338 [00:00<00:00, 431.45it/s]Loading weights:  61%|██████    | 207/338 [00:00<00:00, 421.78it/s]Loading weights:  75%|███████▌  | 255/338 [00:00<00:00, 417.74it/s]Loading weights:  90%|████████▉ | 303/338 [00:00<00:00, 434.51it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 416.88it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:40,  8.39it/s]Loading weights:  22%|██▏       | 75/338 [00:00<00:00, 368.30it/s]Loading weights:  36%|███▋      | 123/338 [00:00<00:00, 410.77it/s]Loading weights:  51%|█████     | 171/338 [00:00<00:00, 426.40it/s]Loading weights:  65%|██████▍   | 219/338 [00:00<00:00, 425.61it/s]Loading weights:  79%|███████▉  | 267/338 [00:00<00:00, 433.16it/s]Loading weights:  93%|█████████▎| 315/338 [00:00<00:00, 425.66it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 409.77it/s]
+  rank2 PID: 495347
+[rank2] start on cuda:2, PID=495347
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:41,  8.20it/s]Loading weights:  27%|██▋       | 90/338 [00:00<00:00, 480.05it/s]Loading weights:  42%|████▏     | 142/338 [00:00<00:00, 482.13it/s]Loading weights:  57%|█████▋    | 193/338 [00:00<00:00, 484.21it/s]Loading weights:  72%|███████▏  | 243/338 [00:00<00:00, 440.54it/s]Loading weights:  86%|████████▌ | 291/338 [00:00<00:00, 447.77it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 440.03it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:48,  6.96it/s]Loading weights:  24%|██▍       | 81/338 [00:00<00:00, 402.17it/s]Loading weights:  38%|███▊      | 129/338 [00:00<00:00, 419.21it/s]Loading weights:  52%|█████▏    | 175/338 [00:00<00:00, 410.37it/s]Loading weights:  65%|██████▌   | 220/338 [00:00<00:00, 422.10it/s]Loading weights:  79%|███████▉  | 267/338 [00:00<00:00, 419.15it/s]Loading weights:  92%|█████████▏| 312/338 [00:00<00:00, 428.37it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 402.14it/s]
+  rank3 PID: 495561
+[rank3] start on cuda:3, PID=495561
+[rank0] V3 data-parallel: 4 symmetric actor-learners
+[rank0] start on cuda:0, PID=495263
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   6%|▌         | 20/338 [00:00<00:01, 195.48it/s]Loading weights:  22%|██▏       | 75/338 [00:00<00:00, 397.28it/s]Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:  36%|███▋      | 123/338 [00:00<00:00, 412.59it/s]Loading weights:  51%|█████     | 173/338 [00:00<00:00, 442.58it/s]Loading weights:   0%|          | 1/338 [00:00<00:40,  8.32it/s]Loading weights:  64%|██████▍   | 218/338 [00:00<00:00, 443.34it/s]Loading weights:  19%|█▊        | 63/338 [00:00<00:00, 339.46it/s]Loading weights:  78%|███████▊  | 263/338 [00:00<00:00, 445.03it/s]Loading weights:  33%|███▎      | 111/338 [00:00<00:00, 399.24it/s]Loading weights:  47%|████▋     | 159/338 [00:00<00:00, 418.00it/s]Loading weights:  91%|█████████ | 308/338 [00:00<00:00, 432.66it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 428.68it/s]
+Loading weights:  61%|██████    | 207/338 [00:00<00:00, 435.02it/s]Loading weights:  79%|███████▊  | 266/338 [00:00<00:00, 484.43it/s]Loading weights:  94%|█████████▍| 317/338 [00:00<00:00, 492.01it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 446.68it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:40,  8.30it/s]Loading weights:  22%|██▏       | 76/338 [00:00<00:00, 394.04it/s]Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:  35%|███▍      | 118/338 [00:00<00:00, 398.77it/s]Loading weights:  51%|█████     | 171/338 [00:00<00:00, 431.50it/s]Loading weights:   0%|          | 1/338 [00:00<00:46,  7.24it/s]Loading weights:  19%|█▉        | 65/338 [00:00<00:00, 328.08it/s]Loading weights:  65%|██████▌   | 220/338 [00:00<00:00, 440.94it/s]Loading weights:  79%|███████▉  | 267/338 [00:00<00:00, 449.67it/s]Loading weights:  33%|███▎      | 112/338 [00:00<00:00, 377.08it/s]Loading weights:  47%|████▋     | 159/338 [00:00<00:00, 404.54it/s]Loading weights:  93%|█████████▎| 315/338 [00:00<00:00, 445.84it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 421.39it/s]
+Loading weights:  62%|██████▏   | 209/338 [00:00<00:00, 434.15it/s]Loading weights:  80%|███████▉  | 269/338 [00:00<00:00, 483.88it/s]Loading weights:  96%|█████████▌| 325/338 [00:00<00:00, 507.81it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 432.85it/s]
+[rank0] round  1/10 | reward=0.626 acc=0.500 loss=0.0000 kl=0.0000 | t_gen=151.0s t_train=22.2s t_allreduce=3.882s t_round=173.1s | 1.48 samples/s
+[rank0] round  2/10 | reward=0.710 acc=0.582 loss=0.0000 kl=0.0000 | t_gen=153.2s t_train=18.1s t_allreduce=0.053s t_round=206.5s | 1.24 samples/s
+[rank0] round  3/10 | reward=0.663 acc=0.535 loss=-0.1084 kl=-0.0001 | t_gen=195.6s t_train=18.7s t_allreduce=0.051s t_round=214.3s | 1.19 samples/s
+[rank0] round  4/10 | reward=0.708 acc=0.578 loss=-0.1084 kl=0.0005 | t_gen=191.4s t_train=18.7s t_allreduce=0.051s t_round=210.1s | 1.22 samples/s
+[rank0] round  5/10 | reward=0.688 acc=0.551 loss=-0.1084 kl=0.0005 | t_gen=192.8s t_train=18.7s t_allreduce=0.052s t_round=211.6s | 1.21 samples/s
+[rank0] round  6/10 | reward=0.548 acc=0.426 loss=0.0001 kl=0.0005 | t_gen=194.9s t_train=18.8s t_allreduce=0.052s t_round=213.6s | 1.20 samples/s
+[rank0] round  7/10 | reward=0.696 acc=0.559 loss=0.0001 kl=0.0013 | t_gen=196.0s t_train=18.7s t_allreduce=0.052s t_round=214.7s | 1.19 samples/s
+[rank0] round  8/10 | reward=0.613 acc=0.480 loss=0.0002 kl=0.0018 | t_gen=196.3s t_train=18.8s t_allreduce=0.051s t_round=215.1s | 1.19 samples/s
+[rank0] round  9/10 | reward=0.583 acc=0.449 loss=-0.1082 kl=0.0014 | t_gen=196.2s t_train=18.7s t_allreduce=0.053s t_round=214.9s | 1.19 samples/s
+[rank0] round 10/10 | reward=0.659 acc=0.516 loss=0.0004 kl=0.0042 | t_gen=186.1s t_train=18.7s t_allreduce=0.052s t_round=204.8s | 1.25 samples/s
+[rank0] saved metrics to /data/project/v3_results/metrics.json
+[rank0] adapter saved to /data/project/v3_results/adapter
+[E601 01:01:27.266280968 ProcessGroupNCCL.cpp:542] [Rank 1] Collective WorkNCCL(SeqNum=3573, OpType=ALLREDUCE, NumelIn=573440, NumelOut=573440, Timeout(ms)=600000) raised the following async exception: NCCL error: unhandled system error (run with NCCL_DEBUG=INFO for details), NCCL version 2.21.5
+ncclSystemError: System call (e.g. socket, malloc) or external library call failed or device error. 
+Last error:
+
+Exception raised from checkForNCCLErrorsInternal at ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:2027 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x7f9b4776c446 in /data/venv/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::checkForNCCLErrorsInternal(std::shared_ptr<c10d::NCCLComm>&) + 0x220 (0x7f9afcfcf2a0 in /data/venv/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::WorkNCCL::checkAndSetException() + 0x7c (0x7f9afcfcf4ec in /data/venv/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::WorkNCCL::isStarted() + 0x90 (0x7f9afcfcf7c0 in /data/venv/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: c10d::ProcessGroupNCCL::watchdogHandler() + 0x9f8 (0x7f9afcfd7698 in /data/venv/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #5: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x14d (0x7f9afcfd893d in /data/venv/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0x145c0 (0x7f9b47c0f5c0 in /data/venv/lib/python3.10/site-packages/torch/lib/libtorch.so)
+frame #7: <unknown function> + 0x94ac3 (0x7f9b48707ac3 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #8: <unknown function> + 0x1268d0 (0x7f9b487998d0 in /lib/x86_64-linux-gnu/libc.so.6)
+
+[Main] all workers finished.
+
+============================================================
+Training Summary (V3 - 10 rounds)
+============================================================
+  Early reward=0.666 acc=0.539
+  Late  reward=0.618 acc=0.482
+
+  Avg per round:
+    t_gen:        185.4s
+    t_train:      19.0s
+    t_allreduce:  0.435s
+    t_round:      207.9s
+    Throughput:   1.24 samples/sec
+
+  vs V2 baseline 0.94 samples/sec -> 1.32x

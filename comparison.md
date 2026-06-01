@@ -1,6 +1,6 @@
-# GRPO V0 → V1a → V1b → V2 — Comparison
+# GRPO V0 → V1a → V1b → V2 → (V2i/V2f) → V3 — Comparison
 
-All four runs train Qwen2.5-1.5B-Instruct + LoRA (r=64) on GSM8K with the same rule-based reward function (`+1.0` for correct numerical answer, `+0.2` for `\boxed{}` format). What changes is the *system architecture* and (in V0 only) the loss formulation.
+All runs train Qwen2.5-1.5B-Instruct + LoRA (r=64) on GSM8K with the same rule-based reward function (`+1.0` for correct numerical answer, `+0.2` for `\boxed{}` format). What changes is the *system architecture* and (in V0 only) the loss formulation.
 
 ## What each version is
 
@@ -9,26 +9,29 @@ All four runs train Qwen2.5-1.5B-Instruct + LoRA (r=64) on GSM8K with the same r
 | **V0** | 1 process, 1 GPU, serial gen | Sum-then-backward (BROKEN) | b=4, g=4, M=256 | Establish a baseline + expose the loss bug |
 | **V1a** | 1 process, 1 GPU, batched gen | Proper clipped-surrogate + per-token mean | b=8, g=8, M=256 | Fix algorithm + batch generation in one step |
 | **V1b** | 2 processes (Gen + Learner), same GPU | Same as V1a | b=4, g=4, M=128 (downsized) | Measure single-GPU multi-process contention |
-| **V2** | 4 processes (1 Learner + 3 Generators), 4 GPUs, NCCL broadcast | Same as V1a | b=8, g=8, M=256 | Pipeline parallelism across GPUs |
+| **V2** | 4 proc (1 Learner + 3 Gen), 4 GPUs, **sync** rounds, NCCL broadcast | Same as V1a | b=8, g=8, M=256 | Pipeline parallelism across GPUs |
+| **V2i** | V2 made **async** (free-run gen + streaming learner), mp.Queue weights | Same as V1a | b=8, g=8, M=256 | Try to overlap gen+train, kill learner idle |
+| **V2f** | V2i with fixed IPC (raw mp.Queue + /dev/shm weights) | Same as V1a | b=8, g=8, M=256 | Controlled test: is the regression IPC's fault? |
+| **V3** | 4 proc, **data-parallel** (4 symmetric actor-learners), grad all-reduce | Same as V1a | b=8, g=8, M=256 | Every GPU does everything; no idle |
 
 `b`=BATCH_SIZE (prompts/step), `g`=GROUP_SIZE (responses/prompt), `M`=MAX_RESPONSE_LEN.
 
 ## Headline numbers
 
-| Metric | V0 | V1a | V1b† | V2 |
-|--------|----|-----|------|-----|
-| Steps run | 50 | 30 | 30* | 30 |
-| Samples per step | 16 | 64 | 16 | 64 |
-| Wall-clock per step | 248 s | 196 s | 43.8 s | 68.1 s‡ |
-| **Throughput (samples/sec)** | **0.064** | **0.33** | **0.37** | **0.94** |
-| **Speedup vs V0** | 1× | 5.2× | 5.8× | **14.7×** |
-| GPUs used | 1 | 1 | 1 | 4 |
-| Peak GPU mem (cuda:0) | ~13 GB | ~11 GB | ~16 GB (OOM-tight) | ~6 GB |
-| Peak GPU mem (cuda:1-3) | — | — | — | ~5 GB each |
+| Metric | V0 | V1a | V1b† | V2 | V2i | V2f | **V3** |
+|--------|----|-----|------|-----|-----|-----|--------|
+| **Throughput (samples/sec)** | **0.064** | **0.33** | **0.37** | **0.94** | 0.64 | 0.66 | **1.41**§ |
+| **Speedup vs V0** | 1× | 5.2× | 5.8× | 14.7× | 10× | 10.3× | **22×** |
+| vs V2 | — | — | — | 1.00× | 0.68× | 0.70× | **1.50×** |
+| GPUs used | 1 | 1 | 1 | 4 | 4 | 4 | 4 |
+| GPU busy at any instant | 1/1 | 1/1 | 1/1 (shared) | 1/4 | ~all (but contended) | ~all (contended) | **4/4** |
+| Peak GPU mem | ~13 GB | ~11 GB | ~16 GB (OOM) | ~6 GB | ~6 GB | ~6 GB | ~11 GB ×4 |
+| Effective batch / update | 16 | 64 | 16 | 64 | 64 | 64 | **256** |
+| Weight sync | — | — | mp.Queue | 0.02s NCCL | 1.26s mp.Q | 0.21s shm | **0.04s NCCL** |
+| reward valid? | ❌ broken | ✅ | ❌ distorted | ✅ | ✅ | ✅ | ✅ |
 
-† V1b numbers are caveated — see "V1b reward caveat" below.
-\* V1b: 30 steps processed in-memory; 20 saved to disk before Learner crashed on stop-signal.
-‡ V2 wall-clock per step is the round time amortized over 3 learner steps (each round runs 3 generators in parallel and trains 3 batches).
+† V1b numbers caveated (downsized config distorts reward) — see "V1b reward caveat".
+§ V3 steady-state (rounds 6-10); 10-round average is 1.28. V2i/V2f are async attempts that *regressed* — see V2i/V2f section.
 
 ## Per-step timing breakdown
 

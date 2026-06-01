@@ -1,0 +1,10 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:50,  6.70it/s]Loading weights:  19%|█▊        | 63/338 [00:00<00:00, 304.19it/s]Loading weights:  32%|███▏      | 107/338 [00:00<00:00, 355.80it/s]Loading weights:  43%|████▎     | 147/338 [00:00<00:00, 364.13it/s]Loading weights:  58%|█████▊    | 195/338 [00:00<00:00, 386.51it/s]Loading weights:  70%|██████▉   | 236/338 [00:00<00:00, 379.06it/s]Loading weights:  81%|████████▏ | 275/338 [00:00<00:00, 380.27it/s]Loading weights:  93%|█████████▎| 315/338 [00:00<00:00, 373.71it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 367.73it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  [v3] 20/100  running acc=0.400
+  [v3] 40/100  running acc=0.500
+  [v3] 60/100  running acc=0.517
+  [v3] 80/100  running acc=0.512
+  [v3] 100/100  running acc=0.500
+
+[v3] GSM8K test accuracy: 50/100 = 0.5000  (788s, greedy)
